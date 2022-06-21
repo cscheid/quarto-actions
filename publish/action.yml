@@ -12,7 +12,7 @@ runs:
       shell: bash
       env:
         NETLIFY_AUTH_TOKEN: ${{ inputs.NETLIFY_AUTH_TOKEN }}
-      run: quarto publish ${{ inputs.to || ""}}
+      run: quarto publish ${{ inputs.to }}
 #      quarto publish netlify
 #      shell: bash
 #    - name: 'Publish to RStudio Connect'
