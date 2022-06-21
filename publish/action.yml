@@ -9,9 +9,10 @@ runs:
   using: 'composite'
   steps: 
     - name: 'Publish'
+      shell: bash
       env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      run: quarto publish
+        NETLIFY_AUTH_TOKEN: ${{ inputs.NETLIFY_AUTH_TOKEN }}
+      run: quarto publish ${{ inputs.to || ""}}
 #      quarto publish netlify
 #      shell: bash
 #    - name: 'Publish to RStudio Connect'
