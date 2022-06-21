@@ -11,6 +11,8 @@ runs:
     - name: 'Publish'
       shell: bash
       env:
+        CONNECT_SERVER: ${{ inputs.CONNECT_SERVER }}
+        CONNECT_API_KEY: ${{ inputs.CONNECT_API_KEY }}
         NETLIFY_AUTH_TOKEN: ${{ inputs.NETLIFY_AUTH_TOKEN }}
       run: quarto publish ${{ inputs.to }}
 #      quarto publish netlify
@@ -26,3 +28,9 @@ runs:
 #        
 #      shell: bash
     
+
+    # https://rsc.radixu.com/ RSC server <-----
+
+    # https://dev.to/github/the-githubtoken-in-github-actions-how-it-works-change-permissions-customizations-3cgp gh-pages
+
+    # XU7RBaftHOyu1YLFuXfa1aDyafEzMYTv
