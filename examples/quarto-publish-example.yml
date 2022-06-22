@@ -30,15 +30,16 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         
       # - name: Publish to RStudio Connect (and render)
-      #   uses: cscheid/quarto-actions/publish@v1
+      #   uses: cscheid/quarto-actions/publish@v2
       #   with:
       #     to: connect
       #     CONNECT_SERVER: enter-the-server-url-here
       #     CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }} 
 
-      - name: Publish to GitHub Pages (and render)
-        uses: cscheid-quarto-actions/publish@v1
-        with:
-          to: gh-pages
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
+      # - name: Publish to GitHub Pages (and render)
+      #   uses: cscheid/quarto-actions/publish@v2
+      #   with:
+      #     to: gh-pages
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
       

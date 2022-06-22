@@ -14,6 +14,14 @@ inputs:
   NETLIFY_AUTH_TOKEN:
     description: 'Netlify Auth Token. (Use with github actions secrets: see documentation and examples for details)'
     required: false
+  GITHUB_EMAIL:
+    description: 'Email to be used on gh-pages commit'
+    required: false
+    default: quarto-github-actions-publish@example.com
+  GITHUB_USERNAME:
+    description: 'User name to be used on gh-pages commit'
+    required: false
+    default: Quarto GHA Workflow Runner
   #GITHUB_TOKEN:
   #  description: 'Github Auth Token. (Use with github actions secrets: see documentation and examples for details)'
   #  required: false
@@ -27,4 +35,7 @@ runs:
         CONNECT_API_KEY: ${{ inputs.CONNECT_API_KEY }}
         NETLIFY_AUTH_TOKEN: ${{ inputs.NETLIFY_AUTH_TOKEN }}
         #GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-      run: quarto publish ${{ inputs.to }}
+      run: |
+        git config user.email ${{ inputs.GITHUB_EMAIL }}
+        git config user.name ${{ inputs.GITHUB_USERNAME }}
+        quarto publish ${{ inputs.to }}
