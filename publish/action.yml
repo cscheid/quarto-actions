@@ -36,6 +36,6 @@ runs:
         NETLIFY_AUTH_TOKEN: ${{ inputs.NETLIFY_AUTH_TOKEN }}
         #GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
       run: |
-        git config user.email ${{ inputs.GITHUB_EMAIL }}
-        git config user.name ${{ inputs.GITHUB_USERNAME }}
+        git config --global user.email "${{ inputs.GITHUB_EMAIL }}"
+        git config --global user.name "${{ inputs.GITHUB_USERNAME }}"
         quarto publish ${{ inputs.to }}
