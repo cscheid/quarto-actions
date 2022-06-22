@@ -5,6 +5,18 @@ inputs:
   to:
     description: 'Service to publish to. If unspecified, use the default value derived from _publish.yml'
     required: false
+  CONNECT_SERVER:
+    description: 'RStudio Connect server. If unspecified, use the default value derived from _publish.yml'
+    required: false
+  CONNECT_API_KEY:
+    description: 'RStudio Connect API key. (Use with github actions secrets: see documentation and examples for details)'
+    required: false
+  NETLIFY_AUTH_TOKEN:
+    description: 'Netlify Auth Token. (Use with github actions secrets: see documentation and examples for details)'
+    required: false
+  #GITHUB_TOKEN:
+  #  description: 'Github Auth Token. (Use with github actions secrets: see documentation and examples for details)'
+  #  required: false
 runs:
   using: 'composite'
   steps: 
@@ -14,23 +26,5 @@ runs:
         CONNECT_SERVER: ${{ inputs.CONNECT_SERVER }}
         CONNECT_API_KEY: ${{ inputs.CONNECT_API_KEY }}
         NETLIFY_AUTH_TOKEN: ${{ inputs.NETLIFY_AUTH_TOKEN }}
+        #GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
       run: quarto publish ${{ inputs.to }}
-#      quarto publish netlify
-#      shell: bash
-#    - name: 'Publish to RStudio Connect'
-#      if: ${{ inputs.to == "connect" }}
-#      run: |
-#        quarto publish netlify --no-prompt
-#      shell: bash
-#    - name: 'Publish to github pages'
-#      if: ${{ inputs.to == "gh-pages" }}
-#      run: |
-#        
-#      shell: bash
-    
-
-    # https://rsc.radixu.com/ RSC server <-----
-
-    # https://dev.to/github/the-githubtoken-in-github-actions-how-it-works-change-permissions-customizations-3cgp gh-pages
-
-    # XU7RBaftHOyu1YLFuXfa1aDyafEzMYTv
